@@ -1,3 +1,31 @@
+<?php
+//start the session
+session_start();
+
+//check if session variable are set
+
+if(isset($_SESSION['ses_username']) === false){
+    header("location: index.php?logfirst");
+
+}elseif (isset($_REQUEST['logout'])===true){
+    session_destroy();
+    header("location: index.php?logout");
+}
+    
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
                         <html>
                             <head>
@@ -32,24 +60,27 @@ body {
         <div class="bg-white shadow rounded overflow-hidden">
             <div class="px-4 pt-0 pb-4 cover">
                 <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img src="images/photo-profile.avif" alt="..." width="150" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit Profile</a>
+                    <div class="profile mr-3"><img src="images\photo-profile2.avif" alt="..." width="150" class="rounded mb-2 img-thumbnail">
+                        <a href="?logout" class="btn btn-outline-dark btn-sm btn-block">Sign Out</a>
 
 
                     </div>
                     <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">Ryan Clifford L. Perez</h4>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Marinduque PH
+                        <h4 class="mt-0 mb-0"> <?php echo $_SESSION['ses_fullname']; ?> </h4>
+                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>
+
+                           <?php echo $_SESSION['ses_address']; ?>
                          </p>
                     </div>
-                </div>
+                </div>;
             </div>
             <div class="bg-light p-4 d-flex justify-content-end text-center">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">21,150</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
+                        <h5 class="font-weight-bold mb-0 d-block">321,150</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
                     </li>
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">756,450</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
+                        <h5 class="font-weight-bold mb-0 d-block">10,000,000</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
                     </li>
                     <li class="list-inline-item">
                         <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
@@ -60,9 +91,10 @@ body {
             <div class="px-4 py-3">
                 <h5 class="mb-0">Expertise </h5>
                 <div class="p-4 rounded shadow-sm bg-light">
-                    <p class="font-italic mb-0">Full-stack Web Developer</p>
-                    <p class="font-italic mb-0">Mobile App Developer</p>
-                    <p class="font-italic mb-0">Photographer/Videographer</p>
+                    <p class="font-italic mb-0">Basketball Player</p>
+                    <p class="font-italic mb-0">Mobile Gamer</p>
+                    <p class="font-italic mb-0">BSI/T STUDENT</p>
+                     <p class="font-italic mb-0">Love to Ride Motorcycle</p>
                 </div>
             </div>
 
